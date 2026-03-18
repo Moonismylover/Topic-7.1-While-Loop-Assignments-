@@ -6,17 +6,26 @@
         {
             Console.Title = "Average of Numbers in a Loop";
 
-            int numInputs, counter = 0;
+            int numInputs, counter = 0, sum = 0, num, final;
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Hello, user! How many numbers do you like to input? \nEnter here: ");
             Console.ForegroundColor = ConsoleColor.Blue;
             numInputs = Convert.ToInt32(Console.ReadLine());
 
-            //while (counter <= numInputs)
-            //{
-                
-            //}
+            while (counter <= numInputs)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Number: ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                num = Convert.ToInt32(Console.ReadLine());
+                sum = sum + num;
+                counter++;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            final = sum / numInputs;
+            Console.WriteLine($"The average of your numbers is {final}!");
         }
 
         static void Main(string[] args)
@@ -25,7 +34,6 @@
 
             Assignment1();
 
-               
         }
     }
 }
