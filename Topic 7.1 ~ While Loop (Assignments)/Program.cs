@@ -99,6 +99,67 @@
 
         }
 
+        public static void Assignment3()
+        {
+            Console.Title = "Casino Game";
+
+            int coinSide, points = 3, userinput;
+
+            Random generator = new Random();
+            coinSide = generator.Next(1, 3);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Welcome GAMBLER! This is a game of heads and tails!");
+            Console.WriteLine();
+            Console.WriteLine("You will have 3 points to start off with. If you guess correct, you win the game. If you guess incorrect, you lose a point and will have to continue playing.");
+            Console.WriteLine();
+            Console.WriteLine("Remember you can QUIT whenever you want!");
+            Console.WriteLine();
+            Console.WriteLine("To pick heads, choose 1. To pick tails, choose 2. To QUIT, choose 3.");
+            Console.WriteLine();
+            Console.Write("The coin has been flipped! What side do you think it landed on? \nEnter here: ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            userinput = Convert.ToInt32(Console.ReadLine());
+
+            if (userinput == 3)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"Thank you for playing! You ended the game with {points} points!");
+                return;
+            }
+
+            while (userinput != coinSide && points > 0)
+            {
+                points--;
+
+                if (points == 0)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("You ran out of points! Try again sometime!");
+                    break;
+                }
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine();
+                Console.WriteLine($"Incorrect! You have {points} points now!");
+
+                coinSide = generator.Next(1, 3);
+                Console.WriteLine();
+                Console.Write("The coin has been flipped again. What side will you choose? \nEnter here: ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                userinput = Convert.ToInt32(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            }
+
+            if (userinput == coinSide)
+            {
+                points++;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"Congrats! You guessed correct! You ended the game with {points} points!");
+            }
+
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "Topic 7.1 ~ While Loop (Assignments)";
@@ -115,7 +176,7 @@
             Console.WriteLine("__________________________________________");
             Console.WriteLine();
 
-
+            Assignment3();
 
         }
     }
