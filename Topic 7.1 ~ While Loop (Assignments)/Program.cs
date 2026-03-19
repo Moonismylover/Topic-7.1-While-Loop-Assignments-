@@ -59,31 +59,44 @@
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
 
+                if (userinput == num)
+                {
+                    break;
+                }
+
                 if (userinput > num)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("Too high! \nTry again: ");
                     Console.ForegroundColor = ConsoleColor.Blue;
                     userinput = Convert.ToInt32(Console.ReadLine());
+                    counter--;
                 }
 
                 if (userinput < num)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("Too low! \nTry again: ");
                     Console.ForegroundColor = ConsoleColor.Blue;
                     userinput = Convert.ToInt32(Console.ReadLine());
+                    counter--;
                 }
-
-                counter--;
 
                 if (counter == 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine($"Thank you for playing! You have {counter} tries left!");
                     break;
                 }
+
             }
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Correct! Congrats on guessing right! Do come again!");
+            if (userinput == num)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Correct! Congrats on guessing right! Do come again!");
+            }
+
         }
 
         static void Main(string[] args)
@@ -93,10 +106,16 @@
             Assignment1();
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n_____________________________");
+            Console.WriteLine("__________________________________________");
+            Console.WriteLine();
 
             Assignment2();
-            
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("__________________________________________");
+            Console.WriteLine();
+
+
 
         }
     }
