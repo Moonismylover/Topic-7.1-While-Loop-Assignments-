@@ -42,7 +42,7 @@
         {
             Console.Title = "Hi Low with Limited Tries";
 
-            int num;
+            int num, counter = 7, userinput;
 
             Random generator = new Random();
             num = generator.Next(1, 101);
@@ -50,7 +50,15 @@
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Welcome USER! You will be given 7 guesses to guess a randomly generated number from 1-100. GOOD LUCK!");
 
+            while (counter > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Your guess: ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                userinput = Convert.ToInt32(Console.ReadLine());
 
+
+            }
         }
 
         static void Main(string[] args)
